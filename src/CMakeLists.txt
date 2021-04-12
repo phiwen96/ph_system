@@ -5,8 +5,14 @@ file(GLOB SOURCE_LIST ${PROJECT_SOURCE_DIR}/src/*.cpp)
 
 set (self ${PROJECT_NAME})
 
+# configure_file (../include/ph_system/system.hpp.in system.hpp)
+configure_file (system.hpp.in ${CMAKE_CURRENT_LIST_DIR}/../include/ph_system/system.hpp @ONLY)
+
+
 add_library (${self} STATIC 
-	${SOURCE_LIST}  ${HEADER_LIST} 
+	# ${SOURCE_LIST}  
+    ${CMAKE_CURRENT_BINARY_DIR}/system.cpp
+    ${HEADER_LIST} 
 )
 
 
@@ -15,7 +21,7 @@ add_library (${self} STATIC
 
 ph_precompile (TARGET ${self} PUBLIC PCH ${std_pch} ${boost_pch})
 
-add_library (ph::memory ALIAS ${self})
+add_library (ph::system ALIAS ${self})
 target_link_libraries (${self} PRIVATE ${Boost_LIBRARIES})
 target_include_directories (${self} PUBLIC ${PROJECT_SOURCE_DIR}/include ${Boost_INCLUDE_DIRS})
 # target_include_directories (${self} PUBLIC ph::coroutines)
@@ -31,3 +37,9 @@ target_include_directories(${self} PUBLIC
     $<BUILD_INTERFACE:${PROJECT_SOURCE_DIR}/include>
     $<INSTALL_INTERFACE:include>
 )
+
+if (CMAKE_PROJECT_NAME STREQUAL PROJECT_NAME)
+
+else()
+    set_target_properties(${PROJECT_NAME}          PROPERTIES FOLDER "dependencies/${PROJECT_NAME}")
+endif()

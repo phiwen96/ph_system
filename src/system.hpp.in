@@ -1,0 +1,8 @@
+#ifndef SYSTEM_HPP
+#define SYSTEM_HPP
+
+#cmakedefine APPLE
+#cmakedefine WINDOWS
+#cmakedefine LINUX
+
+#endif
