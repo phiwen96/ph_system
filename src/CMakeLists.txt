@@ -1,7 +1,40 @@
+# processor
+	set (_x86_64 "false")
+	set (_arm64 "false")
+	if (${CMAKE_SYSTEM_PROCESSOR} MATCHES "x86_64")
+		set (_x86_64 "true")
+	elseif (${CMAKE_SYSTEM_PROCESSOR} MATCHES "arm64")
+		set (_arm64 "true")
+	else ()
+		message (FATAL_ERROR "unknown processor")
+	endif ()
+
+	set (_Darwin "false")
+	set (_Linux "false")
+	set (_Windows "false")
+
+	if (${CMAKE_SYSTEM_NAME} MATCHES "Darwin")
+		# message("Darwin")
+		set (_Darwin "true")
+		# add_compile_definitions (Darwin)
+	elseif(${CMAKE_SYSTEM_NAME} MATCHES "Linux")
+		set (_Linux "true")
+		# add_compile_definitions (Linux)
+	elseif(${CMAKE_SYSTEM_NAME} MATCHES "Windows")
+		message (FATAL_ERROR "not yet defined for Windows")
+
+		set (_Windows 1)
+		# add_compile_definitions (Windows)
+	else ()
+		message (FATAL_ERROR "unknown system ${CMAKE_SYSTEM_NAME}")
+	endif ()
 
 
-file(GLOB_RECURSE HEADER_LIST "${PROJECT_SOURCE_DIR}/include/*.hpp")
-file(GLOB SOURCE_LIST ${PROJECT_SOURCE_DIR}/src/*.cpp)
+
+
+
+file(GLOB_RECURSE HEADER_LIST "${CMAKE_CURRENT_LIST_DIR}/../include/*.hpp")
+file(GLOB SOURCE_LIST ${CMAKE_CURRENT_LIST_DIR}/*.cpp)
 
 set (self ${PROJECT_NAME})
 
@@ -11,7 +44,7 @@ configure_file (system.hpp.in ${CMAKE_CURRENT_LIST_DIR}/../include/ph_system/sys
 
 add_library (${self} STATIC 
 	# ${SOURCE_LIST}  
-    ${CMAKE_CURRENT_BINARY_DIR}/system.cpp
+    ${SOURCE_LIST}
     ${HEADER_LIST} 
 )
 

@@ -1,8 +1,20 @@
-#ifndef SYSTEM_HPP
-#define SYSTEM_HPP
+#pragma once
 
-#cmakedefine APPLE
-#cmakedefine WINDOWS
-#cmakedefine LINUX
-
-#endif
+namespace ph::system
+{
+    
+	template <typename T>
+    concept Darwin = @_Darwin@;
+    
+    template <typename T>
+    concept Linux = @_Linux@;
+    
+    template <typename T>
+    concept Windows = @_Windows@;
+    
+    template <typename T>
+    concept X86_64 = @_x86_64@;
+    
+    template <typename T>
+    concept Arm64 = @_arm64@;
+}
