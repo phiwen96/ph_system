@@ -33,8 +33,25 @@
 
 
 
-file(GLOB_RECURSE HEADER_LIST "${CMAKE_CURRENT_LIST_DIR}/../include/*.hpp")
-file(GLOB SOURCE_LIST ${CMAKE_CURRENT_LIST_DIR}/*.cpp)
+
+set (include_dir "${CMAKE_CURRENT_LIST_DIR}/../include/ph_system")
+set (src_dir "${CMAKE_CURRENT_LIST_DIR}")
+
+ph_create_modules (
+
+	MODULES 
+		"system"
+
+
+	INCLUDE
+		"${include_dir}"
+
+	SRC 
+		"${src_dir}"
+)
+
+file(GLOB_RECURSE HEADER_LIST "${include_dir}/*.hpp")
+file(GLOB SOURCE_LIST "${src_dir}/*.cpp")
 
 set (self ${PROJECT_NAME})
 
