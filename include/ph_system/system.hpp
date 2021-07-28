@@ -3,18 +3,13 @@
 namespace ph::system
 {
     
-	template <typename T>
-    concept Darwin = true;
+    inline constexpr bool Darwin = true;
     
-    template <typename T>
-    concept Linux = false;
+    inline constexpr bool Linux = false;
     
-    template <typename T>
-    concept Windows = false;
+    inline constexpr bool Windows = false;
     
-    template <typename T>
-    concept X86_64 = false;
+    inline constexpr bool X86_64 = false;
     
-    template <typename T>
-    concept Arm64 = true;
+    inline constexpr bool Arm64 = true;
 }
