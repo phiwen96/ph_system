@@ -72,6 +72,7 @@ target_compile_definitions (${PROJECT_NAME} PRIVATE "$<$<CONFIG:DEBUG>:DEBUG> $<
 
 
 
+
 ph_precompile (TARGET ${self} PUBLIC PCH ${std_pch})
 
 add_library (ph::system ALIAS ${self})
