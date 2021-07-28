@@ -9,7 +9,7 @@ project (
 )	
 
 if (NOT TARGET ph_cmake)
-include(FetchContent)
+	include(FetchContent)
 	FetchContent_Declare(
   		ph_cmake
   		GIT_REPOSITORY https://github.com/phiwen96/ph_cmake.git
