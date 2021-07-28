@@ -36,8 +36,6 @@ if (CMAKE_PROJECT_NAME STREQUAL PROJECT_NAME)
 	include (CTest)
 endif()
 
-find_package (Boost 1.74 REQUIRED)
-
 
 
 add_subdirectory (src)

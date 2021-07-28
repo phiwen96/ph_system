@@ -72,11 +72,10 @@ target_compile_definitions (${PROJECT_NAME} PRIVATE "$<$<CONFIG:DEBUG>:DEBUG> $<
 
 
 
-ph_precompile (TARGET ${self} PUBLIC PCH ${std_pch} ${boost_pch})
+ph_precompile (TARGET ${self} PUBLIC PCH ${std_pch})
 
 add_library (ph::system ALIAS ${self})
-target_link_libraries (${self} PRIVATE ${Boost_LIBRARIES})
-target_include_directories (${self} PUBLIC ${PROJECT_SOURCE_DIR}/include ${Boost_INCLUDE_DIRS})
+target_include_directories (${self} PUBLIC ${PROJECT_SOURCE_DIR}/include)
 # target_include_directories (${self} PUBLIC ph::coroutines)
 target_compile_features (${self} PUBLIC cxx_std_20)
 
