@@ -4,20 +4,19 @@ set (${self} test_${PROJECT_NAME})
 # find_package(Catch2 REQUIRED)
 
 if (NOT TARGET Catch2)
-	include(FetchContent)
+	include (FetchContent)
 
 	FetchContent_Declare(
-	Catch2
-	GIT_REPOSITORY https://github.com/catchorg/Catch2.git
-	GIT_TAG        v2.13.1a
-	)
+		Catch2
+		GIT_REPOSITORY https://github.com/catchorg/Catch2.git
+		GIT_TAG        v2.13.1)
 
-	FetchContent_MakeAvailable(Catch2)
+	FetchContent_MakeAvailable (Catch2)
 endif ()
 
 
-file(GLOB_RECURSE HEADER_LIST "include/*.hpp")
-file(GLOB SOURCE_LIST *.cpp)
+file (GLOB_RECURSE HEADER_LIST "include/*.hpp")
+file (GLOB SOURCE_LIST *.cpp)
 add_executable (test_${PROJECT_NAME} ${SOURCE_LIST} ${HEADER_LIST})
 target_compile_definitions (test_${PROJECT_NAME} PRIVATE "$<$<CONFIG:DEBUG>:DEBUG> $<$<CONFIG:RELEASE>:RELEASE>")
 
