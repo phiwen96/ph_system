@@ -2,14 +2,16 @@
 
 namespace ph::system
 {
-    
-    inline constexpr bool Darwin = @_Darwin@;
-    
-    inline constexpr bool Linux = @_Linux@;
-    
-    inline constexpr bool Windows = @_Windows@;
-    
-    inline constexpr bool X86_64 = @_x86_64@;
-    
-    inline constexpr bool Arm64 = @_arm64@;
+    inline namespace v0_0_0
+	{
+		inline constexpr bool Darwin = @_Darwin@;
+		
+		inline constexpr bool Linux = @_Linux@;
+		
+		inline constexpr bool Windows = @_Windows@;
+		
+		inline constexpr bool X86_64 = @_x86_64@;
+		
+		inline constexpr bool Arm64 = @_arm64@;	
+	}
 }

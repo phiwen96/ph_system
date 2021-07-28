@@ -23,13 +23,6 @@ if (NOT TARGET ph_cmake)
 	endif ()
 endif ()
 
-# add_subdirectory (cmake/phake)
-# if (NOT TARGET ph_coroutines)
-# 	add_subdirectory (dependencies/ph_coroutines)
-# endif ()
-# if (NOT TARGET ph_type_list)
-# 	add_subdirectory (dependencies/ph_type_list)
-# endif ()
 
 
 if (CMAKE_PROJECT_NAME STREQUAL PROJECT_NAME)
@@ -39,29 +32,8 @@ if (CMAKE_PROJECT_NAME STREQUAL PROJECT_NAME)
 	set (CMAKE_CXX_STANDARD_REQUIRED ON)
 	set (CMAKE_CXX_EXTENSIONS ON)
 
-	# Let's nicely support folders in IDEs
 	set_property (GLOBAL PROPERTY USE_FOLDERS ON)
-
-
-
-	# Testing only available if this is the main app
-	# Note this needs to be done in the main CMakeLists
-	# since it calls enable_testing, which must be in the
-	# main CMakeLists.
 	include (CTest)
-
-
-
-   # Docs only available if this is the main app
-   	# find_package (Doxygen)
-
-	# if (Doxygen_FOUND)
-	# 	add_subdirectory (docs)
-   	# else()
-    #  		message(STATUS "Doxygen not found, not building docs")
-   	# endif()
-
-
 endif()
 
 find_package (Boost 1.74 REQUIRED)
