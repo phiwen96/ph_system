@@ -16,6 +16,64 @@ void out (auto&&... s) noexcept
 
 TEST_CASE ("")
 {
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    auto i = 11;
+    
+    
+    cout << "i = " << i << endl;
+    
+    cout << "hello world" << " bajs" <<  " skmkm" << endl << endl << "jdf";
+    
+    while (i < 12) // kör det mellan måsvingarna en gång om i är mindre än 12
+    {
+        cout << "Nils oskuld ej hittad!" << endl;
+        i = 13;
+    }
+    
+    return 0;
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     constexpr auto res = ph::system::Darwin or ph::system::Linux or ph::system::Windows;
     constexpr auto res2 = ph::system::Arm64 or ph::system::X86_64;
     
