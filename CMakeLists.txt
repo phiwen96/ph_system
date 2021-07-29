@@ -1,6 +1,9 @@
 cmake_minimum_required (VERSION 3.18)
 get_filename_component (self ${CMAKE_CURRENT_SOURCE_DIR} NAME)
 
+set(CMAKE_MODULE_PATH "${PROJECT_SOURCE_DIR}/cmake" ${CMAKE_MODULE_PATH})
+
+
 project (
 	${self}
 	VERSION 1.0
