@@ -97,7 +97,7 @@ target_include_directories(${self} PUBLIC
 # Or you can do this yourself by directly calling enable_testing().
 if ((CMAKE_PROJECT_NAME STREQUAL PROJECT_NAME OR MYPROJECT_BUILD_TESTING) AND BUILD_TESTING)
     include (CTest)
-	add_test (NAME TestName COMMAND $<TARGET_FILE:${TESTNAME}>)
+	# add_test (NAME TestName COMMAND $<TARGET_FILE:${TESTNAME}>)
 
 else ()
     set_target_properties (${PROJECT_NAME}          PROPERTIES FOLDER "dependencies/${PROJECT_NAME}")
