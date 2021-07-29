@@ -91,8 +91,14 @@ target_include_directories(${self} PUBLIC
     $<INSTALL_INTERFACE:include>
 )
 
-if (CMAKE_PROJECT_NAME STREQUAL PROJECT_NAME)
 
-else()
-    set_target_properties(${PROJECT_NAME}          PROPERTIES FOLDER "dependencies/${PROJECT_NAME}")
-endif()
+# Which will enable testing and set a BUILD_TESTING option so users can 
+# turn testing on and off (along with a few other things). 
+# Or you can do this yourself by directly calling enable_testing().
+if ((CMAKE_PROJECT_NAME STREQUAL PROJECT_NAME OR MYPROJECT_BUILD_TESTING) AND BUILD_TESTING)
+    include (CTest)
+	add_test (NAME TestName COMMAND $<TARGET_FILE:${TESTNAME}>)
+
+else ()
+    set_target_properties (${PROJECT_NAME}          PROPERTIES FOLDER "dependencies/${PROJECT_NAME}")
+endif ()
